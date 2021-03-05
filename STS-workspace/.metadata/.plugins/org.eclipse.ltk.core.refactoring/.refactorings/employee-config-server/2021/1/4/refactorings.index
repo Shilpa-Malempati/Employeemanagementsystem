@@ -1,0 +1,5 @@
+1611047137348	Rename package 'com.capgemini.microserviceconfigserver'
+1611047235164	Rename type 'MicroserviceConfigServerApplication'
+1611047682217	Rename resource 'config'
+1611047743133	Rename resource 'centralProperties'
+1611047787748	Rename resource 'central'

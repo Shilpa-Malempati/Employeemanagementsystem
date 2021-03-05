@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: EMPLOLYEE-GATEWAY
+server:
+  port: 8084
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:9091/eureka
+  instance: 
+      hostname: localhost     
+zuul: 
+  routes:   
+    employee-search-service:
+       path: /**
+       serviceId: EMPLOYEE-SEARCH
+

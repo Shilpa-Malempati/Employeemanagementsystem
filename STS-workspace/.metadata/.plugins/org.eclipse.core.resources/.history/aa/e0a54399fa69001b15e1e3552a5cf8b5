@@ -1,0 +1,57 @@
+package com.capgemini.employeesearchservice;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@CrossOrigin(origins = "http://localhost:3000")
+@RestController
+@RequestMapping("/Employee")
+public class EmployeeSearchController {
+	@Autowired
+	EmployeeSearch employeeSearch;
+	
+	@GetMapping("/{id}")
+	public Employee findById(@PathVariable int id)
+	{
+		
+		return employeeSearch.getEmployeeById(id);
+	}
+	@GetMapping
+	public List<Employee> findById()
+	{
+		return employeeSearch.getAllEmployee();
+	}
+	
+	@PostMapping
+	public String addEmployee(@RequestBody Employee emp)
+	{
+		employeeSearch.addEmployee(emp);
+		return "Employee Added Successfully";
+				
+	}
+	@PostMapping
+	public Employee updateEmployee(@RequestBody Employee emp)
+	{
+		employeeSearch.updateEmployee(emp);
+		return emp;
+				
+	}
+	@DeleteMapping("/{id}")
+	public String removeEmployeeById(@PathVariable int id)
+	{
+		employeeSearch.removeEmployeeById(id);
+		return "Employee removed Successfully";
+				
+	}
+
+}
+

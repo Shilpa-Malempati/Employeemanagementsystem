@@ -1,0 +1,14 @@
+server:
+  port: 9090
+
+
+spring:
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: C:\Users\capgeminij74\Desktop\Config
+
+  profiles:
+    active: native
+
